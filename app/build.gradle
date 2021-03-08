@@ -58,4 +58,6 @@ dependencies {
 
     // Picasso for handling image from internet
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation "com.android.support:support-compat:28.0.0"
 }

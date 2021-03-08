@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -23,16 +24,18 @@ class WebViewFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentWebViewBinding> (inflater, R.layout.fragment_web_view, container, false)
 
-        val webView: WebView = binding.webView
-        url = args.myArg
-        webView.loadUrl(url)
+        if (isOnline(requireContext())) {
+            val webView: WebView = binding.webView
+            url = args.myArg
+            webView.loadUrl(url)
 
-        // Enable Javascript
-        val webSettings: WebSettings = webView.getSettings()
-        webSettings.javaScriptEnabled = true
+            val webSettings: WebSettings = webView.getSettings()
+            webSettings.javaScriptEnabled = true
 
-        // Force links and redirects to open in the WebView instead of in a browser
-        webView.setWebViewClient(WebViewClient())
+            webView.setWebViewClient(WebViewClient())
+        } else {
+            Toast.makeText(activity, "Tidak ada koneksi internet", Toast.LENGTH_LONG).show()
+        }
         return binding.root
     }
 }

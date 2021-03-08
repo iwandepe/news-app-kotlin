@@ -21,16 +21,19 @@ class CategoryFragment : Fragment() {
         binding.apply {
             businessCategory.setOnClickListener {v: View ->
                 val action = CategoryFragmentDirections.actionCategoryFragmentToNewsFragment("business")
-                v.findNavController().navigate(R.id.action_categoryFragment_to_newsFragment)
+                v.findNavController().navigate(action)
             }
             entertainmentCategory.setOnClickListener {v: View ->
-                v.findNavController().navigate(R.id.action_categoryFragment_to_newsFragment)
+                val action = CategoryFragmentDirections.actionCategoryFragmentToNewsFragment("entertainment")
+                v.findNavController().navigate(action)
             }
             healthCategory.setOnClickListener{v: View ->
-                v.findNavController().navigate(R.id.action_categoryFragment_to_newsFragment)
+                val action = CategoryFragmentDirections.actionCategoryFragmentToNewsFragment("health")
+                v.findNavController().navigate(action)
             }
             technologyCategory.setOnClickListener {v: View ->
-                v.findNavController().navigate(R.id.action_categoryFragment_to_newsFragment)
+                val action = CategoryFragmentDirections.actionCategoryFragmentToNewsFragment("technology")
+                v.findNavController().navigate(action)
             }
         }
         return binding.root
