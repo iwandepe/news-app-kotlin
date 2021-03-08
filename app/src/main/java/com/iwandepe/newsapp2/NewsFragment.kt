@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.iwandepe.newsapp2.databinding.FragmentNewsBinding
 import retrofit2.Call
@@ -16,6 +17,7 @@ class NewsFragment : Fragment() {
     var dataSet: MutableList<Article> = mutableListOf()
     lateinit var recyclerViewAdapter: RecyclerViewAdapter
     lateinit var recyclerView: RecyclerView
+    val args: NewsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
