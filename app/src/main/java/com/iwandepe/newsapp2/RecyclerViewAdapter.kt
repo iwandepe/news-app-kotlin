@@ -58,10 +58,11 @@ class RecyclerViewAdapter (
             .resize(350, 350)
             .centerCrop()
             .into(viewHolder.image)
-//        viewHolder.rowItem.setOnClickListener {v: View ->
-//            val action = NewsFragmentDirections.actionNewsFragmentToWebViewFragment(dataSet[position].urlToImage)
-//            v.findNavController().navigate(action)
-//        }
+        viewHolder.rowItem.setOnClickListener {v: View ->
+            val url = dataSet[position].url
+            val action = NewsFragmentDirections.actionNewsFragmentToWebViewFragment(url)
+            v.findNavController().navigate(action)
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)

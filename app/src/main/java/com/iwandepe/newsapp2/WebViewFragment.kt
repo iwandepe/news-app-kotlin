@@ -9,10 +9,12 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.iwandepe.newsapp2.databinding.FragmentWebViewBinding
 
 class WebViewFragment : Fragment() {
-    var url: String = ""
+    var url: String = "www.google.com"
+    val args: WebViewFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +24,7 @@ class WebViewFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentWebViewBinding> (inflater, R.layout.fragment_web_view, container, false)
 
         val webView: WebView = binding.webView
-        url = arguments?.getString("data")!!
+        url = args.myArg
         webView.loadUrl(url)
 
         // Enable Javascript

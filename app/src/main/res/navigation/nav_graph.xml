@@ -12,10 +12,18 @@
         tools:layout="@layout/fragment_news" >
         <action
             android:id="@+id/action_newsFragment_to_webViewFragment"
-            app:destination="@id/webViewFragment" />
+            app:destination="@id/webViewFragment">
+            <argument
+                android:name="myArg"
+                app:argType="string"/>
+        </action>
     </fragment>
     <fragment
         android:id="@+id/webViewFragment"
         android:name="com.iwandepe.newsapp2.WebViewFragment"
-        android:label="WebViewFragment" />
+        android:label="WebViewFragment">
+        <argument
+            android:name="myArg"
+            app:argType="string" />
+    </fragment>
 </navigation>
